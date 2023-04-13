@@ -1,4 +1,5 @@
 ﻿#include "VhodStudent.h"
+#include  "VhodPrepod.h"
 #include <iostream>
 #include <fstream>
 
@@ -25,9 +26,10 @@ int main()
         case 1:
             StartVhodStudent(CountStudent); break;
         case 2:
-            cout << endl; break;
+            StartPrepod(); break;
         case 3:
             return 0;
+
         default:
             cout << "Вы ввели неверное значение, попробуйте снова" << endl << endl;
         }
