@@ -127,11 +127,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Lagutin.cpp" />
     <ClCompile Include="VhodPrepod.cpp" />
     <ClCompile Include="VhodStudent.cpp" />
     <ClCompile Include="ТестПо проге.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Lagutin.h" />
     <ClInclude Include="VhodPrepod.h" />
     <ClInclude Include="VhodStudent.h" />
   </ItemGroup>

@@ -1,4 +1,5 @@
 #include "VhodStudent.h"
+#include "Lagutin.h"
 #include <Windows.h>
 const int COUNT = 19;
 
@@ -18,7 +19,7 @@ void FunctionVhod(Students *Students) {
 		file.close();
 	}
 	else {
-		cout << "Файл не был открыт (База студентов)" << endl;
+		cout << "Файл не был открыт (База студентов) " << endl;
 		exit(1);
 	}
 }
@@ -27,12 +28,12 @@ void StartVhodStudent(int Count) {
 	Students* Spisok = new Students[COUNT];
 	FunctionVhod(Spisok);
 	cout << endl;
-	cout << Spisok[2].Login << " " << Spisok[2].Password << endl;
 	string Login1;
 	string Password1;
 	int Number = 0;
 	bool check = false;
 	bool flag = true;
+	string Login;
 	do {
 		cout << "Введите Логин: "; cin >> Login1;
 		cout << "Введите Пароль: "; cin >> Password1;
@@ -40,6 +41,10 @@ void StartVhodStudent(int Count) {
 		for (int i = 0; i < COUNT; i++) {
 			if (Login1 == Spisok[i].Login) {
 				Number = i;
+				cout << "Успешная авторизация!" << endl << endl;
+				
+				Login = Spisok[i].Login;
+				Menu_Student(Count,Login);
 				check = true;
 				break;
 			}

@@ -1,0 +1,60 @@
+Как объявить строку в языке программирования С? 
+a) int name[]; b) char name[]; c) float name[]; d) double name[]; 
+Какой символ используется в языке С для обозначения строки? 
+a) ' ' b) " " c) / d) ; 
+Как записать символ переноса строки в строку в языке С? 
+a) \n b) \r c) /n d) /r 
+Какой оператор используется для сравнения строк? 
+a) >= b) == c) <= d) <> 
+Какие функции используются для объединения строк? 
+a) strcat() b) strlen() c) strcmp() d) strcpy() 
+Какую функцию нужно использовать для поиска подстроки в строке? 
+a) strlen() b) strstr() c) strrev() d) strcmp() 
+Какую функцию нужно использовать для копирования строк? 
+a) strcpy() b) strlen() c) strcmp() d) strcat() 
+Что произойдет, если в строку будет записано больше символов, чем она может вместить? 
+a) Ошибка b) произойдет обрезание строки c) произойдет переполнение буфера d) ничего не произойдет 
+Какая функция используется для выделения памяти под строку? 
+a) malloc() b) create() c) allocate() d) memory() 
+Какие символы нельзя использовать в строке в языке С? 
+a) кавычки " b) одинарные кавычки ' c) знак процента % d) запятая , 
+Какая функция используется для преобразования строки в число? 
+a) itoa() b) atoi() c) atof() d) stoi() 
+Какая функция используется для сравнения строк без учета регистра символов? 
+a) strcasecmp() b) strcmpi() c) stricmp() d) stricoll() 
+Как добавить символ в конец строки? 
+a) использовать цикл for b) использовать цикл while c) использовать функцию strcat() d) использовать функцию realloc() 
+Как заполнить строку определенным символом? 
+a) использовать цикл for и оператор присваивания b) использовать цикл while c) использовать memset() d) использовать функцию strcpy() 
+Какой оператор используется для получения символа по определенному индексу в строке? 
+a) : b) > c) [ d) . 
+Как удалить первый символ из строки? 
+a) использовать цикл for b) использовать цикл while c) использовать функцию strcpy() d) сделать сдвиг указателя на одну позицию 
+Какой символ нужно поставить в конце строки, чтобы она стала корректной? 
+a) точку . b) двоеточие : c) точку с запятой ; d) никакого символа не надо ставить 
+Как объявить строковую переменную в языке C? 
+a) int string; b) double string; c) char string[]; d) long string; 
+Какое выражение позволяет объединить две строки в языке C? 
+a) str1 - str2; b) str1 + str2; c) strcat(str1, str2); d) str1 * str2; 
+Как вывести строку на экран в языке C? 
+a) printf(string); b) scanf(string); c) print(string); d) print(string[]); 
+Как узнать длину строки в языке C? 
+a) len(string); b) strlen(string); c) length(string); d) strlength(string); 
+Как скопировать одну строку в другую в языке C? 
+a) str1 = str2; b) str1 : str2; c) string_copy(str1, str2); d) str1 + str2; 
+Как проверить, равны ли две строки в языке C? 
+a) str1 == str2; b) str1 = str2; c) strcmp(str1, str2) == 0; d) strcmp(str1, str2) != 0; 
+Как изменить один символ в строке в языке C? 
+a) str[0] = 'a'; b) str[1] = 'b'; c) str[index] = new_char; d) change(str, index, new_char); 
+Как преобразовать строку в число в языке C? 
+a) convertToInt(str); b) atoi(str); c) strToInt(str); d) charToInt(str); 
+Как проверить, содержит ли строка определенный символ в языке C? 
+a) containsChar(str, 'c'); b) if (str[i] == 'c'); c) strchr(str, 'c') != NULL; d) isCharInString(str, 'c'); 
+Как записать одну строку в файл в языке C? 
+a) writeToFile(str, file); b) fprintf(file, str); c) strcat(file, str); d) writeFile(str, file); 
+Как преобразовать число в строку в языке C? 
+a) convertToStr(num); b) itoa(num, str); c) intToStr(num); d) numToString(num); 
+Как удалить определенный символ из строки в языке C? 
+a) removeChar(str, index); b) str.remove(index); c) memmove(&str[index], &str[index+1], strlen(str)-index); d) delChar(str, index); 
+Как разделить строку на части в языке C? 
+a) split(str, parts); b) strtok(str, delimiters); c) divide(str, parts); d) separate(str, delimiters); 

@@ -1,25 +1,19 @@
 ﻿#include "VhodStudent.h"
 #include <iostream>
-using namespace std;
+#include <fstream>
 
-struct Baza {
-    string Login;
-    string Name;
-    string Password;
-    string Surname;
-    int GradeCicles;
-    int GradeArrays;
-    int GradeStroki;
-    int GradeRecursia;
-    int GradeStruct;
-    int GradeFiles;
-    int GradeAdresa;
-    int GradeDynamic;
-};
+using namespace std;
+#define MAXCOUNT 100
 
 int main()
 {
-    int CountStudents = 19;
+    int CountStudent = 0;
+
+    ifstream StartFile("StudentsBAZA.txt");
+    for (int i = 0; i < 1;i++)
+        StartFile >> CountStudent;
+    StartFile.close();
+       
     setlocale(LC_ALL, "rus");
     int check; 
     do {
@@ -29,7 +23,7 @@ int main()
         cout << "Ввод: "; cin >> check;
         switch (check) {
         case 1:
-            StartVhodStudent(CountStudents); break;
+            StartVhodStudent(CountStudent); break;
         case 2:
             cout << endl; break;
         case 3:
