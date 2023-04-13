@@ -29,37 +29,58 @@ struct Baza {
 	double Sredn;
 };
 
+
+string LOGIN;
 Task_answer Arhiv[100];
-void gradeRed() {
+
+
+void gradeRed(int Grade) {
 	int CountStudent = 19;
 	Baza* LIST = new Baza[CountStudent];
 	ifstream infile("StudentsBAZA.txt");
-	for (int i = 0; i < CountStudent+1;i++) {
+	for (int i = 0; i < CountStudent + 1;i++) {
 		if (i == 0) {
 			infile >> CountStudent;
-			cout << CountStudent << endl;
 		}
 		else {
-			infile >> LIST[i-1].Login >> LIST[i-1].Password >> LIST[i-1].Name >> LIST[i-1].Surname >> LIST[i-1].GradeCicles
-				>> LIST[i-1].GradeArrays >> LIST[i-1].GradeStroki >> LIST[i-1].GradeRecursia
-				>> LIST[i-1].GradeStruct >> LIST[i-1].GradeFiles >> LIST[i-1].GradeAdresa >> LIST[i-1].GradeDynamic
-				>> LIST[i-1].ITOGTEST >> LIST[i-1].Sredn;
+			infile >> LIST[i - 1].Login >> LIST[i - 1].Password >> LIST[i - 1].Name >> LIST[i - 1].Surname >> LIST[i - 1].GradeCicles
+				>> LIST[i - 1].GradeArrays >> LIST[i - 1].GradeStroki >> LIST[i - 1].GradeRecursia
+				>> LIST[i - 1].GradeStruct >> LIST[i - 1].GradeFiles >> LIST[i - 1].GradeAdresa >> LIST[i - 1].GradeDynamic
+				>> LIST[i - 1].ITOGTEST >> LIST[i - 1].Sredn;
 		}
-
-		}
-	for (int i = 0; i < CountStudent;i++) {
-		cout << LIST[i].Login <<" "<< LIST[i].Password <<" "<< LIST[i].Name <<" "<< LIST[i].Surname << " " << LIST[i].GradeCicles
-			<<" "<<  LIST[i].GradeArrays <<" "<< LIST[i].GradeStroki <<" "<< LIST[i].GradeRecursia
-			<<" "<< LIST[i].GradeStruct <<" "<< LIST[i].GradeFiles <<" "<< LIST[i].GradeAdresa <<" "<< LIST[i].GradeDynamic
-			<<" "<< LIST[i].ITOGTEST <<" "<< LIST[i].Sredn << endl;
-
 	}
+	cout << LIST[0].Login;
+	infile.close();
+	ofstream file("StudentsBAZA.txt");
+	file << CountStudent << endl;
+
+
+	for (int i = 0; i < CountStudent;i++) {
+		if (LIST[i].Login == LOGIN) {
+			file << LIST[i].Login << " " << LIST[i].Password << " " << LIST[i].Name << " " << LIST[i].Surname << " " << Grade
+				<< " " << LIST[i].GradeArrays << " " << LIST[i].GradeStroki << " " << LIST[i].GradeRecursia
+				<< " " << LIST[i].GradeStruct << " " << LIST[i].GradeFiles << " " << LIST[i].GradeAdresa << " " << LIST[i].GradeDynamic
+				<< " " << LIST[i].ITOGTEST << " " << LIST[i].Sredn << endl;
+		}
+		else {
+			file << LIST[i].Login << " " << LIST[i].Password << " " << LIST[i].Name << " " << LIST[i].Surname << " " << LIST[i].GradeCicles
+				<< " " << LIST[i].GradeArrays << " " << LIST[i].GradeStroki << " " << LIST[i].GradeRecursia
+				<<" "<< LIST[i].GradeStruct <<" "<< LIST[i].GradeFiles <<" "<< LIST[i].GradeAdresa <<" "<< LIST[i].GradeDynamic
+				<<" "<< LIST[i].ITOGTEST <<" "<< LIST[i].Sredn << endl;
+		}
+	}
+	file.close();
+
 }
+
+
 //Главное меню студенческой части
 void Menu_Student(int CountStudent,string Login) {
 	cout << CountStudent << endl;
-	cout << Login << endl;
-	gradeRed();
+	//int grade = 5;
+	//LOGIN = Login;
+	//cout << LOGIN;
+	//gradeRed(grade);
 	srand(time(NULL));
 	SetConsoleCP(1251);
 	int Number;
@@ -124,14 +145,14 @@ void Test_logic(int flag) {
 	ifstream file, answ;
 	switch (flag)
 	{
-	case 1:file.open("Cikle_task.txt"); answ.open("Cikle_answ.txt"); break;
-	case 2:file.open("Mas_task.txt"); answ.open("Mas_answ.txt"); break;
-	case 3:file.open("Stroki_task.txt"); answ.open("Stroki_answ.txt"); break;
-	case 4:file.open("Rec_task.txt"); answ.open("Rec_answ.txt"); break;
-	case 5:file.open("Struct_task.txt"); answ.open("Struct_answ.txt"); break;
-	case 6:file.open("File_task.txt"); answ.open("File_answ.txt"); break;
-	case 7:file.open("Adress_task.txt"); answ.open("Adress_answ.txt"); break;
-	case 8:file.open("Dynamic_task.txt"); answ.open("Dynamic_answ.txt"); break;
+	case 1:file.open("Vopros\\Cikle_task.txt"); answ.open("Vopros\\Cikle_answ.txt"); break;
+	case 2:file.open("Vopros\\Mas_task.txt"); answ.open("Vopros\\Mas_answ.txt"); break;
+	case 3:file.open("Vopros\\Stroki_task.txt"); answ.open("Vopros\\Stroki_answ.txt"); break;
+	case 4:file.open("Vopros\\Rec_task.txt"); answ.open("Vopros\\Rec_answ.txt"); break;
+	case 5:file.open("Vopros\\Struct_task.txt"); answ.open("Vopros\\Struct_answ.txt"); break;
+	case 6:file.open("Vopros\\File_task.txt"); answ.open("Vopros\\File_answ.txt"); break;
+	case 7:file.open("Vopros\\Adress_task.txt"); answ.open("Vopros\\Adress_answ.txt"); break;
+	case 8:file.open("Vopros\\Dynamic_task.txt"); answ.open("Vopros\\Dynamic_answ.txt"); break;
 	}
 
 	do {
@@ -191,16 +212,19 @@ void Test_logic(int flag) {
 		}
 		cout << " --------------------------------------------------- \n";
 	}
-	if (err <= 1)grade = 5;
+	if (err <= 1)grade = 5; 
 	else {
-		if (err <= 3)grade = 4;
+		if (err <= 3)grade = 4; 
 		else {
 			if (err <= 5)grade = 3;
 			else {
 				grade = 2;
 			}
+
 		}
+
 	}
+	gradeRed(grade);
 	cout <<endl<< "Результат:"<<endl << "Количество правильных ответов:" << 10 - err << "\tОценка:" << grade << endl;
 	file.close();
 	answ.close();
@@ -213,14 +237,14 @@ void Tren_logic(int flag) {
 	ifstream file, answ;
 	switch (flag)
 	{
-	case 1:file.open("Cikle_task.txt"); answ.open("Cikle_answ.txt"); break;
-	case 2:file.open("Mas_task.txt"); answ.open("Mas_answ.txt"); break;
-	case 3:file.open("Stroki_task.txt"); answ.open("Stroki_answ.txt"); break;
-	case 4:file.open("Rec_task.txt"); answ.open("Rec_answ.txt"); break;
-	case 5:file.open("Struct_task.txt"); answ.open("Struct_answ.txt"); break;
-	case 6:file.open("File_task.txt"); answ.open("File_answ.txt"); break;
-	case 7:file.open("Adress_task.txt"); answ.open("Adress_answ.txt"); break;
-	case 8:file.open("Dynamic_task.txt"); answ.open("Dynamic_answ.txt"); break;
+	case 1:file.open("Vopros\\Cikle_task.txt"); answ.open("Vopros\\Cikle_answ.txt"); break;
+	case 2:file.open("Vopros\\Mas_task.txt"); answ.open("Vopros\\Mas_answ.txt"); break;
+	case 3:file.open("Vopros\\Stroki_task.txt"); answ.open("Vopros\\Stroki_answ.txt"); break;
+	case 4:file.open("Vopros\\Rec_task.txt"); answ.open("Vopros\\Rec_answ.txt"); break;
+	case 5:file.open("Vopros\\Struct_task.txt"); answ.open("Vopros\\Struct_answ.txt"); break;
+	case 6:file.open("Vopros\\File_task.txt"); answ.open("Vopros\\File_answ.txt"); break;
+	case 7:file.open("Vopros\\Adress_task.txt"); answ.open("Vopros\\Adress_answ.txt"); break;
+	case 8:file.open("Vopros\\Dynamic_task.txt"); answ.open("Vopros\\Dynamic_answ.txt"); break;
 	}
 
 	do {
@@ -286,14 +310,14 @@ void Itog_test() {
 	do{
 		switch (i)
 		{
-		case 1:file.open("Cikle_task.txt"); answ.open("Cikle_answ.txt"); break;
-		case 2:file.open("Mas_task.txt"); answ.open("Mas_answ.txt"); break;
-		case 3:file.open("Stroki_task.txt"); answ.open("Stroki_answ.txt"); break;
-		case 4:file.open("Rec_task.txt"); answ.open("Rec_answ.txt"); break;
-		case 5:file.open("Struct_task.txt"); answ.open("Struct_answ.txt"); break;
-		case 6:file.open("File_task.txt"); answ.open("File_answ.txt"); break;
-		case 7:file.open("Adress_task.txt"); answ.open("Adress_answ.txt"); break;
-		case 8:file.open("Dynamic_task.txt"); answ.open("Dynamic_answ.txt"); break;
+		case 1:file.open("Vopros\\Cikle_task.txt"); answ.open("Vopros\\Cikle_answ.txt"); break;
+		case 2:file.open("Vopros\\Mas_task.txt"); answ.open("Vopros\\Mas_answ.txt"); break;
+		case 3:file.open("Vopros\\Stroki_task.txt"); answ.open("Vopros\\Stroki_answ.txt"); break;
+		case 4:file.open("Vopros\\Rec_task.txt"); answ.open("Vopros\\Rec_answ.txt"); break;
+		case 5:file.open("Vopros\\Struct_task.txt"); answ.open("Vopros\\Struct_answ.txt"); break;
+		case 6:file.open("Vopros\\File_task.txt"); answ.open("Vopros\\File_answ.txt"); break;
+		case 7:file.open("Vopros\\Adress_task.txt"); answ.open("Vopros\\Adress_answ.txt"); break;
+		case 8:file.open("Vopros\\Dynamic_task.txt"); answ.open("Vopros\\Dynamic_answ.txt"); break;
 		}
 
 		do {
@@ -366,5 +390,6 @@ void Itog_test() {
 			}
 		}
 	}
+	gradeRed(grade);
 	cout << endl << "Результат:" << endl << "Количество правильных ответов:" << 40 - err << "\tОценка:" << grade << endl;
 }
