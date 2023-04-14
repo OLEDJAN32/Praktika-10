@@ -134,6 +134,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Lagutin.h" />
+    <ClInclude Include="Teacher.h" />
     <ClInclude Include="VhodPrepod.h" />
     <ClInclude Include="VhodStudent.h" />
   </ItemGroup>

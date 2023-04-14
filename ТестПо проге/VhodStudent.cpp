@@ -41,16 +41,14 @@ void StartVhodStudent(int Count) {
 		for (int i = 0; i < COUNT; i++) {
 			if (Login1 == Spisok[i].Login) {
 				Number = i;
-				cout << "Успешная авторизация!" << endl << endl;
-				
 				Login = Spisok[i].Login;
-				Menu_Student(Count,Login);
 				check = true;
 				break;
 			}
 		}if (check == true) {
 			if (Password1 == Spisok[Number].Password) {
-				cout << "Авторизация прошла  успешно!" << endl << endl;
+				Menu_Student(Count, Login);
+				cout << "\nАвторизация прошла  успешно!" << endl << endl;
 				flag = false;
 			}
 			else {

@@ -1,5 +1,6 @@
 ﻿#include "VhodStudent.h"
 #include  "VhodPrepod.h"
+#include "Teacher.h"
 #include <iostream>
 #include <fstream>
 
@@ -26,7 +27,7 @@ int main()
         case 1:
             StartVhodStudent(CountStudent); break;
         case 2:
-            StartPrepod(); break;
+            InputPasswordTeacher(); break;
         case 3:
             return 0;
 
