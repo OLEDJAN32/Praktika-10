@@ -4,7 +4,7 @@
 #include <string>
 using namespace std;
 
-void Menu_Student(int count,string Login);
+void Menu_Student(string Login);
 void Trening();
 void Testirovanie();
 void Test_logic(int flag);

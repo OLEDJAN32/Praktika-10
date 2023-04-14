@@ -35,24 +35,24 @@ Task_answer Arhiv[100];
 
 
 void gradeRed(int Grade, int flag) {
-	int CountStudent = 19;
+	int CountStudent = 0;
 	double sum, count_grade = 0;
-	Baza* LIST = new Baza[CountStudent];
+	Baza* LIST = new Baza[100];
 	ifstream infile("StudentsBAZA.txt");
-	for (int i = 0; i < CountStudent + 1;i++) {
-		if (i == 0) {
-			infile >> CountStudent;
-		}
-		else {
-			infile >> LIST[i - 1].Login >> LIST[i - 1].Password >> LIST[i - 1].Name >> LIST[i - 1].Surname >> LIST[i - 1].GradeCicles
-				>> LIST[i - 1].GradeArrays >> LIST[i - 1].GradeStroki >> LIST[i - 1].GradeRecursia
-				>> LIST[i - 1].GradeStruct >> LIST[i - 1].GradeFiles >> LIST[i - 1].GradeAdresa >> LIST[i - 1].GradeDynamic
-				>> LIST[i - 1].ITOGTEST >> LIST[i - 1].Sredn;
-		}
+	infile >> CountStudent;
+	cout << CountStudent << endl;
+	for (int i = 0; i < CountStudent;i++) {
+			infile >> LIST[i].Login >> LIST[i].Password >> LIST[i].Name >> LIST[i].Surname >> LIST[i].GradeCicles
+				>> LIST[i].GradeArrays >> LIST[i].GradeStroki >> LIST[i].GradeRecursia
+				>> LIST[i].GradeStruct >> LIST[i].GradeFiles >> LIST[i].GradeAdresa >> LIST[i].GradeDynamic
+				>> LIST[i].ITOGTEST >> LIST[i].Sredn;
+		
 	}
+	cout << LIST[1].Name << endl;
 	infile.close();
 	ofstream file("StudentsBAZA.txt");
 	file << CountStudent << endl;
+	cout << CountStudent << endl;
 	for (int i = 0; i < CountStudent; i++) {
 		if (LIST[i].Login == LOGIN) {
 			switch (flag)
@@ -79,7 +79,7 @@ void gradeRed(int Grade, int flag) {
 			sum = LIST[i].GradeCicles + LIST[i].GradeArrays + LIST[i].GradeStroki + LIST[i].GradeRecursia + LIST[i].GradeStruct + LIST[i].GradeFiles + LIST[i].GradeAdresa + LIST[i].GradeDynamic + LIST[i].ITOGTEST;
 			LIST[i].Sredn = sum / count_grade;
 
-			file << LIST[i].Login << " " << LIST[i].Password << " " << LIST[i].Name << " " << LIST[i].Surname << " " << LIST[i].GradeCicles
+			file << LIST[i].Login << " " << LIST[i].Password << " " << LIST[i].Name << " " << LIST[i].Surname << " " << Grade
 				<< " " << LIST[i].GradeArrays << " " << LIST[i].GradeStroki << " " << LIST[i].GradeRecursia
 				<< " " << LIST[i].GradeStruct << " " << LIST[i].GradeFiles << " " << LIST[i].GradeAdresa << " " << LIST[i].GradeDynamic
 				<< " " << LIST[i].ITOGTEST << " " << LIST[i].Sredn << endl;
@@ -92,17 +92,17 @@ void gradeRed(int Grade, int flag) {
 		}
 	}
 	file.close();
+	delete[]LIST;
 
 }
 
 
 //Главное меню студенческой части
-void Menu_Student(int CountStudent, string Login) {
-	cout << CountStudent << endl;
-	//int grade = 5;
-	//LOGIN = Login;
-	//cout << LOGIN;
-	//gradeRed(grade);
+void Menu_Student(string Login) {
+
+	LOGIN = Login;
+
+	gradeRed(5, 1);
 	srand(time(NULL));
 	SetConsoleCP(1251);
 	int Number;

@@ -243,7 +243,7 @@ void EditStudent(Baza* Student, int& CountStudent) {
 		CountStudent++;
 		СhangeLineFile(to_string(CountStudent), "StudentsBAZA.txt", 1);
 		break;
-	default: cout << "Такой функции не существует."; return;
+	default: cout << "Такой функции не существует." << endl; return;
 	}
 }
 
@@ -1122,14 +1122,12 @@ void MenuPrepodMAIN() {
 		cout << "Ввод: "; cin >> check;
 		switch (check) {
 		case 0:
+			delete[] LIST; return;
 			return;
 		case 1:
-			//FullFilt(LIST, Count); break;
+			EditQuest(); break;
 		case 2:
 			MenuRedStudents(LIST, Count); break;
-		case 3:
-			cout << endl;
-
 		default:
 			cout << "Вы ввели неверное значение, попробуйте снова!" << endl;
 		}

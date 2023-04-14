@@ -28,7 +28,8 @@ int main()
             StartVhodStudent(CountStudent); break;
         case 2:
             InputPasswordTeacher(); break;
-        case 3:
+        case 0:
+            cout << "Успешное завершение работы программы" << endl;
             return 0;
 
         default:

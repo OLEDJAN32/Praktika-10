@@ -47,7 +47,7 @@ void StartVhodStudent(int Count) {
 			}
 		}if (check == true) {
 			if (Password1 == Spisok[Number].Password) {
-				Menu_Student(Count, Login);
+				Menu_Student(Login);
 				cout << "\nАвторизация прошла  успешно!" << endl << endl;
 				flag = false;
 			}
