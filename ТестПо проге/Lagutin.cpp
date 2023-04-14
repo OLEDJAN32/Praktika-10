@@ -40,7 +40,7 @@ void gradeRed(int Grade, int flag) {
 	Baza* LIST = new Baza[100];
 	ifstream infile("StudentsBAZA.txt");
 	infile >> CountStudent;
-	cout << CountStudent << endl;
+
 	for (int i = 0; i < CountStudent;i++) {
 			infile >> LIST[i].Login >> LIST[i].Password >> LIST[i].Name >> LIST[i].Surname >> LIST[i].GradeCicles
 				>> LIST[i].GradeArrays >> LIST[i].GradeStroki >> LIST[i].GradeRecursia
@@ -48,11 +48,10 @@ void gradeRed(int Grade, int flag) {
 				>> LIST[i].ITOGTEST >> LIST[i].Sredn;
 		
 	}
-	cout << LIST[1].Name << endl;
+
 	infile.close();
 	ofstream file("StudentsBAZA.txt");
 	file << CountStudent << endl;
-	cout << CountStudent << endl;
 	for (int i = 0; i < CountStudent; i++) {
 		if (LIST[i].Login == LOGIN) {
 			switch (flag)
@@ -102,7 +101,7 @@ void Menu_Student(string Login) {
 
 	LOGIN = Login;
 
-	gradeRed(5, 1);
+	//gradeRed(5, 1);
 	srand(time(NULL));
 	SetConsoleCP(1251);
 	int Number;
