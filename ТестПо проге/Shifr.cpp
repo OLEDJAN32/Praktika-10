@@ -1,12 +1,14 @@
 #include "Shifr.h"
 #include <string>
 #include <fstream>
+#include <Windows.h>
 
 #define English 26
 #define Russian 32 
 
 void Shifr()
 {
+    SetConsoleCP(1251);
     int n = 4;
     int flag;
     FILE* FILE1, * FILE2;

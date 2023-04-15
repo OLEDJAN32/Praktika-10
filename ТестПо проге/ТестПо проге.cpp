@@ -99,9 +99,8 @@ void ClearDeShifr() {
 int main()
 {
     setlocale(LC_ALL, "rus");
-    DeShifrQwest();
     DeShifr();
-    //ShifrTeach();
+    DeShifrQwest();
     DeShifrTeach();
     int check; 
     bool flag = false;
@@ -127,7 +126,7 @@ int main()
     } while (flag==false);
 
     ClearDeShifr();
-
+    //ofstream BAZA
     ofstream file("StudentsBAZADeShifr.txt");
     file << "";
     file.close();

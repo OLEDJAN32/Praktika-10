@@ -103,7 +103,7 @@ void Menu_Student(string Login) {
 	LOGIN = Login;
 	cout << "\nВы зашли по логином: " << LOGIN << endl;
 	srand(time(NULL));
-	SetConsoleCP(1251);
+//SetConsoleCP(1251);
 	int Number;
 	do {
 		cout << "Выберите модуль:" << endl;
@@ -119,9 +119,6 @@ void Menu_Student(string Login) {
 		default: cout << "Введено неверное значение! Попробуйте снова." << endl; break;
 		}
 	} while (Number != 0);
-	ofstream file("StudentsBAZADeShifr.txt");
-	file << "";
-	file.close();
 }
 
 //Меню тренинг

@@ -31,8 +31,8 @@ int FunctionVhod(Students *Students) {
 	return Count;
 }
 void StartVhodStudent() {
+	//Shifr();
 	SetConsoleCP(1251);
-	Shifr();
 	Students* Spisok = new Students[100];
 	int COUNT = FunctionVhod(Spisok);
 	cout << endl;
