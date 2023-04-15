@@ -85,7 +85,7 @@ void AddLineFile(string line_add1, string name) {
 	file.clear();
 }
 
-void ChooseSubject(string& name1, string& name2) {
+void ChooseSubject(string& name1, string& name2,string &DeShifr, string &Shifr) {
 	int subject;
 	while (1) {
 		cout << "Выберите тему:" << endl;
@@ -102,34 +102,51 @@ void ChooseSubject(string& name1, string& name2) {
 		case 1:
 			name1 = "Vopros\\Cikle_task.txt";
 			name2 = "Vopros\\Cikle_answ.txt";
+			DeShifr = "Vopros\\Cikle_task.txt";
+			Shifr = "Vopros\\Cikle_taskSHIFR.txt";
+
 			return;
 		case 2:
 			name1 = "Vopros\\Mas_task.txt";
 			name2 = "Vopros\\Mas_answ.txt";
+			DeShifr = "Vopros\\Mas_task.txt";
+			Shifr = "Vopros\\Mas_taskSHIFR.txt";
 			return;
 		case 3:
 			name1 = "Vopros\\Rec_task.txt";
 			name2 = "Vopros\\Rec_answ.txt";
+			DeShifr = "Vopros\\Rec_task.txt";
+			Shifr = "Vopros\\Rec_taskSHIFR.txt";
 			return;
 		case 4:
 			name1 = "Vopros\\Struct_task.txt";
 			name2 = "Vopros\\Struct_answ.txt";
+			DeShifr = "Vopros\\Struct_task.txt";
+			Shifr  = "Vopros\\Struct_taskSHIFR.txt";
 			return;
 		case 5:
 			name1 = "Vopros\\File_task.txt";
 			name2 = "Vopros\\File_answ.txt";
+			DeShifr = "Vopros\\File_task.txt";
+			Shifr = "Vopros\\File_taskSHIFR.txt";
 			return;
 		case 6:
 			name1 = "Vopros\\Adress_task.txt";
 			name2 = "Vopros\\Adress_answ.txt";
+			DeShifr = "Vopros\\Adress_task.txt";
+			Shifr = "Vopros\\Adress_taskSHIFR.txt";
 			return;
 		case 7:
 			name1 = "Vopros\\Dynamic_task.txt";
 			name2 = "Vopros\\Dynamic_answ.txt";
+			DeShifr = "Vopros\\Dynamic_task.txt";
+			Shifr = "Vopros\\Dynamic_taskSHIFR.txt";
 			return;
 		case 8:
 			name1 = "Vopros\\Stroki_task.txt";
 			name2 = "Vopros\\Stroki_answ.txt";
+			DeShifr = "Vopros\\Stroki_task.txt";
+			Shifr = "Vopros\\Stroki_taskSHIFR.txt";
 			return;
 		default: cout << "Такой темы не существует."; break;
 		}
@@ -156,7 +173,8 @@ void EditQuest() {
 	cout << "2) Добавление вопросов." << endl;
 	cout << "3) Изменение вопросов." << endl;
 	cin >> func;
-	ChooseSubject(name1, name2);
+	string DeShifr, Shifr;
+	ChooseSubject(name1, name2,DeShifr,Shifr);
 	switch (func) {
 	case 1:
 		cout << "Выберите номер вопроса: ";
@@ -164,6 +182,7 @@ void EditQuest() {
 		DeletLineFile(name1, number_line * 2 - 1);
 		DeletLineFile(name1, number_line * 2 - 1);
 		DeletLineFile(name2, number_line);
+		ShifrQW(DeShifr, Shifr);
 		break;
 	case 2:
 		cout << "Напишите вопрос: ";
@@ -176,6 +195,7 @@ void EditQuest() {
 		AddLineFile(task_name, name1);
 		AddLineFile(ans_name, name1);
 		AddLineFile(ans, name2);
+		ShifrQW(DeShifr, Shifr);
 		break;
 	case 3:
 		cout << "Выберите номер вопроса: ";
@@ -190,6 +210,7 @@ void EditQuest() {
 		СhangeLineFile(task_name, name1, number_line * 2 - 1);
 		СhangeLineFile(ans_name, name1, number_line * 2);
 		СhangeLineFile(ans, name2, number_line);
+		ShifrQW(DeShifr, Shifr);
 		break;
 	default: cout << "Такой функции не существует."; break;
 	}
@@ -225,6 +246,7 @@ void EditStudent(Baza* Student, int& CountStudent) {
 				СhangeLineFile(to_string(CountStudent), "StudentsBAZADeShifr.txt", 1);
 				DeletLineFile("StudentsBAZADeShifr.txt", i + 2);
 				gradeRed(Student, CountStudent);
+				Shifr();
 				return;
 			}
 			cout << "Такого студента не существует. Введите еще раз." << endl;
@@ -243,6 +265,7 @@ void EditStudent(Baza* Student, int& CountStudent) {
 		AddLineFile(string_student, "StudentsBAZADeShifr.txt");
 		CountStudent++;
 		СhangeLineFile(to_string(CountStudent), "StudentsBAZADeShifr.txt", 1);
+		Shifr();
 		break;
 	default: cout << "Такой функции не существует." << endl; return;
 	}
@@ -302,6 +325,7 @@ void EditGradeStudent(Baza* Student, int& CountStudent) {
 				+ " " + to_string(Student[i].ITOGTEST) + " " + to_string(Student[i].Sredn);
 			СhangeLineFile(string_student, "StudentsBAZADeShifr.txt", i + 2);
 			gradeRed(Student, CountStudent);
+			Shifr();
 			return;
 		}
 		cout << "Такого студента не существует. Введите еще раз." << endl;
@@ -1152,7 +1176,11 @@ void InputPasswordTeacher() {
 		cout << "Введите логин: "; cin >> login;
 		cout << "Введите пароль: "; cin >> password;
 		for (int i = 0; i < 2; i++)
-			if ((login == Teacher[i].Login) && (password == Teacher[i].Password)) { flag = true; MenuPrepodMAIN();}
-		cout << "Пароль неверный. Введите еще раз." << endl;
+			if ((login == Teacher[i].Login) && (password == Teacher[i].Password)) 
+			{ 
+				flag = true; MenuPrepodMAIN();
+			}
 	}
+	if(flag==false)
+		cout << "Пароль неверный. Введите еще раз." << endl;
 }

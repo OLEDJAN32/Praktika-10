@@ -5,6 +5,7 @@
 #include <ctime>
 #include <locale>
 #include <Windows.h>
+#include "Shifr.h"
 
 using namespace std;
 
@@ -90,6 +91,7 @@ void gradeRed(int Grade, int flag) {
 		}
 	}
 	file.close();
+	Shifr();
 	delete[]LIST;
 
 }
@@ -119,7 +121,7 @@ void Menu_Student(string Login) {
 	} while (Number != 0);
 	ofstream file("StudentsBAZADeShifr.txt");
 	file << "";
-
+	file.close();
 }
 
 //Меню тренинг

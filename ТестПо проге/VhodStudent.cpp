@@ -7,7 +7,6 @@ struct Students {
 };
 
 int FunctionVhod(Students *Students) {
-	//Shifr();
 	DeShifr();
 	ifstream file("StudentsBAZADeShifr.txt");
 	string s;
