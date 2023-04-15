@@ -38,7 +38,7 @@ void gradeRed(int Grade, int flag) {
 	int CountStudent = 0;
 	double sum, count_grade = 0;
 	Baza* LIST = new Baza[100];
-	ifstream infile("StudentsBAZA.txt");
+	ifstream infile("StudentsBAZADeShifr.txt");
 	infile >> CountStudent;
 
 	for (int i = 0; i < CountStudent;i++) {
@@ -48,9 +48,8 @@ void gradeRed(int Grade, int flag) {
 				>> LIST[i].ITOGTEST >> LIST[i].Sredn;
 		
 	}
-
 	infile.close();
-	ofstream file("StudentsBAZA.txt");
+	ofstream file("StudentsBAZADeShifr.txt");
 	file << CountStudent << endl;
 	for (int i = 0; i < CountStudent; i++) {
 		if (LIST[i].Login == LOGIN) {
@@ -118,6 +117,9 @@ void Menu_Student(string Login) {
 		default: cout << "Введено неверное значение! Попробуйте снова." << endl; break;
 		}
 	} while (Number != 0);
+	ofstream file("StudentsBAZADeShifr.txt");
+	file << "";
+
 }
 
 //Меню тренинг

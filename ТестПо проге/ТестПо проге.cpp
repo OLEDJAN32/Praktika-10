@@ -5,15 +5,15 @@
 #include <fstream>
 
 using namespace std;
-#define MAXCOUNT 100
 
 int main()
 {
     setlocale(LC_ALL, "rus");
     int check; 
+    bool flag = false;
     do {
-        cout << "1, чтобы работать в режиме студента" << endl;
-        cout << "2, чтобы работать в режиме преподавателя" << endl;
+        cout << "\n1 - чтобы работать в режиме студента" << endl;
+        cout << "2 - чтобы работать в режиме преподавателя" << endl;
         cout << "Введите 0, чтобы выйти из программы" << endl;
         cout << "Ввод: "; cin >> check;
         switch (check) {
@@ -23,14 +23,13 @@ int main()
             InputPasswordTeacher(); break;
         case 0:
             cout << "Успешное завершение работы программы" << endl;
-            return 0;
+            flag = true; break;
 
         default:
             cout << "Вы ввели неверное значение, попробуйте снова" << endl << endl;
         }
-    } while (true);
+    } while (flag==false);
 
-   // StartVhod();
     return 0;
 }
 

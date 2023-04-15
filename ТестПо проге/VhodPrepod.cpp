@@ -1,4 +1,5 @@
 #include "Teacher.h"
+#include "Shifr.h"
 
 struct Baza {
 	string Login;
@@ -136,7 +137,7 @@ void ChooseSubject(string& name1, string& name2) {
 }
 
 void gradeRed(Baza* LIST, int& CountStudent) {
-	ifstream infile("StudentsBAZA.txt");
+	ifstream infile("StudentsBAZADeShifr.txt");
 	infile >> CountStudent;
 	for (int i = 0; i < CountStudent; i++) {
 		infile >> LIST[i].Login >> LIST[i].Password >> LIST[i].Name >> LIST[i].Surname >> LIST[i].GradeCicles
@@ -221,8 +222,8 @@ void EditStudent(Baza* Student, int& CountStudent) {
 			cin >> surname;
 			for (int i = 0; i < CountStudent; i++) if ((surname == Student[i].Name) && (name == Student[i].Surname)) {
 				CountStudent--;
-				ÑhangeLineFile(to_string(CountStudent), "StudentsBAZA.txt", 1);
-				DeletLineFile("StudentsBAZA.txt", i + 2);
+				ÑhangeLineFile(to_string(CountStudent), "StudentsBAZADeShifr.txt", 1);
+				DeletLineFile("StudentsBAZADeShifr.txt", i + 2);
 				gradeRed(Student, CountStudent);
 				return;
 			}
@@ -239,9 +240,9 @@ void EditStudent(Baza* Student, int& CountStudent) {
 		cout << "Ââåäèòå ôàìèëèþ: ";
 		cin >> surname;
 		string_student = login + " " + password + " " + surname + " " + name + " 0 0 0 0 0 0 0 0 0 0";
-		AddLineFile(string_student, "StudentsBAZA.txt");
+		AddLineFile(string_student, "StudentsBAZADeShifr.txt");
 		CountStudent++;
-		ÑhangeLineFile(to_string(CountStudent), "StudentsBAZA.txt", 1);
+		ÑhangeLineFile(to_string(CountStudent), "StudentsBAZADeShifr.txt", 1);
 		break;
 	default: cout << "Òàêîé ôóíêöèè íå ñóùåñòâóåò." << endl; return;
 	}
@@ -299,7 +300,7 @@ void EditGradeStudent(Baza* Student, int& CountStudent) {
 				+ " " + to_string(Student[i].GradeArrays) + " " + to_string(Student[i].GradeStroki) + " " + to_string(Student[i].GradeRecursia)
 				+ " " + to_string(Student[i].GradeStruct) + " " + to_string(Student[i].GradeFiles) + " " + to_string(Student[i].GradeAdresa) + " " + to_string(Student[i].GradeDynamic)
 				+ " " + to_string(Student[i].ITOGTEST) + " " + to_string(Student[i].Sredn);
-			ÑhangeLineFile(string_student, "StudentsBAZA.txt", i + 2);
+			ÑhangeLineFile(string_student, "StudentsBAZADeShifr.txt", i + 2);
 			gradeRed(Student, CountStudent);
 			return;
 		}
@@ -1111,6 +1112,7 @@ void MenuRedStudents(Baza* LIST, int Count) {
 	} while (flag == false);
 }
 void MenuPrepodMAIN() {
+	DeShifr();
 	Baza* LIST = new Baza[100];
 	int Count;
 	gradeRed(LIST, Count);
@@ -1122,8 +1124,7 @@ void MenuPrepodMAIN() {
 		cout << "Ââîä: "; cin >> check;
 		switch (check) {
 		case 0:
-			delete[] LIST; return;
-			return;
+			 flag = true; break;
 		case 1:
 			EditQuest(); break;
 		case 2:
@@ -1132,6 +1133,12 @@ void MenuPrepodMAIN() {
 			cout << "Âû ââåëè íåâåðíîå çíà÷åíèå, ïîïðîáóéòå ñíîâà!" << endl;
 		}
 	} while (flag == false);
+	delete[] LIST;
+	ofstream file("StudentsBAZADeShifr.txt");
+	file << "";
+	file.close();
+	cout << "GOOD" << endl;
+	return;
 }
 void InputPasswordTeacher() {
 	SetConsoleCP(1251);

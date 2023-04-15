@@ -1,12 +1,15 @@
 #include "VhodStudent.h"
 #include "Lagutin.h"
+#include "Shifr.h"
 struct Students {
 	string Login;
 	string Password;
 };
 
 int FunctionVhod(Students *Students) {
-	ifstream file("StudentsBAZA.txt");
+	//Shifr();
+	DeShifr();
+	ifstream file("StudentsBAZADeShifr.txt");
 	string s;
 	string ss;
 	int Count;
@@ -30,7 +33,7 @@ int FunctionVhod(Students *Students) {
 }
 void StartVhodStudent() {
 	SetConsoleCP(1251);
-	
+	Shifr();
 	Students* Spisok = new Students[100];
 	int COUNT = FunctionVhod(Spisok);
 	cout << endl;
