@@ -1161,7 +1161,6 @@ void MenuPrepodMAIN() {
 	ofstream file("StudentsBAZADeShifr.txt");
 	file << "";
 	file.close();
-	cout << "GOOD" << endl;
 	return;
 }
 void InputPasswordTeacher() {
