@@ -1186,7 +1186,8 @@ void InputPasswordTeacher() {
 			{ 
 				flag = true; MenuPrepodMAIN();
 			}
+		if (flag == false)
+			cout << "ѕароль неверный. ¬ведите еще раз." << endl;
 	}
-	if(flag==false)
-		cout << "ѕароль неверный. ¬ведите еще раз." << endl;
+	
 }
