@@ -1171,10 +1171,17 @@ void InputPasswordTeacher() {
 	for (int i = 0; i < 2; i++) file >> Teacher[i].Login >> Teacher[i].Password;
 	file.close();
 	bool flag = false;
+	cout << "¬ведите 0, чтобы вернутьс€ назад" << endl;
 	while (flag==false) {
+		
 		cout << "¬ведите логин: "; cin >> login;
+		if (login == "0")
+			return;
 		cout << "¬ведите пароль: "; cin >> password;
+		if (password == "0")
+			return;
 		for (int i = 0; i < 2; i++)
+
 			if ((login == Teacher[i].Login) && (password == Teacher[i].Password)) 
 			{ 
 				flag = true; MenuPrepodMAIN();

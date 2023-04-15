@@ -42,9 +42,14 @@ void StartVhodStudent() {
 	bool check = false;
 	bool flag = true;
 	string Login;
+	cout << "¬ведите 0, чтобы вернутьс€ назад" << endl;
 	do {
 		cout << "¬ведите Ћогин: "; cin >> Login1;
+		if (Login1 == "0")
+			return;
 		cout << "¬ведите ѕароль: "; cin >> Password1;
+		if (Password1 == "0")
+			return;
 		cout << "¬веденные данные: " << Login1 << " " << Password1 << endl;
 		for (int i = 0; i < COUNT; i++) {
 			if (Login1 == Spisok[i].Login) {
