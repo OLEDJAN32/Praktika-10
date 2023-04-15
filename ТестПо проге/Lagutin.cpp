@@ -100,8 +100,7 @@ void gradeRed(int Grade, int flag) {
 void Menu_Student(string Login) {
 
 	LOGIN = Login;
-
-	//gradeRed(5, 1);
+	cout << "\nВы зашли по логином: " << LOGIN << endl;
 	srand(time(NULL));
 	SetConsoleCP(1251);
 	int Number;

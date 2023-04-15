@@ -9,13 +9,6 @@ using namespace std;
 
 int main()
 {
-    int CountStudent = 0;
-
-    ifstream StartFile("StudentsBAZA.txt");
-    for (int i = 0; i < 1;i++)
-        StartFile >> CountStudent;
-    StartFile.close();
-       
     setlocale(LC_ALL, "rus");
     int check; 
     do {
@@ -25,7 +18,7 @@ int main()
         cout << "Ввод: "; cin >> check;
         switch (check) {
         case 1:
-            StartVhodStudent(CountStudent); break;
+            StartVhodStudent(); break;
         case 2:
             InputPasswordTeacher(); break;
         case 0:

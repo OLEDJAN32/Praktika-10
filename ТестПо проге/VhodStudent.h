@@ -2,6 +2,8 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <Windows.h>
+#include <sstream>
 using namespace std;
 
-void StartVhodStudent(int Count);
+void StartVhodStudent();
