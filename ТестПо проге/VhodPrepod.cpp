@@ -172,11 +172,14 @@ void EditQuest() {
 	cout << "1) Удаление вопросов." << endl;
 	cout << "2) Добавление вопросов." << endl;
 	cout << "3) Изменение вопросов." << endl;
+	cout << "0) Вернуться назад." << endl;
 	cin >> func;
+	if (func == 0)
+		return;
 	string DeShifr, Shifr;
-	ChooseSubject(name1, name2,DeShifr,Shifr);
 	switch (func) {
 	case 1:
+		ChooseSubject(name1, name2, DeShifr, Shifr);
 		cout << "Выберите номер вопроса: ";
 		cin >> number_line;
 		DeletLineFile(name1, number_line * 2 - 1);
@@ -185,6 +188,7 @@ void EditQuest() {
 		ShifrQW(DeShifr, Shifr);
 		break;
 	case 2:
+		ChooseSubject(name1, name2, DeShifr, Shifr);
 		cout << "Напишите вопрос: ";
 		cin.ignore();
 		getline(cin, task_name);
@@ -198,6 +202,7 @@ void EditQuest() {
 		ShifrQW(DeShifr, Shifr);
 		break;
 	case 3:
+		ChooseSubject(name1, name2, DeShifr, Shifr);
 		cout << "Выберите номер вопроса: ";
 		cin >> number_line;
 		cin.ignore();
@@ -212,6 +217,7 @@ void EditQuest() {
 		СhangeLineFile(ans, name2, number_line);
 		ShifrQW(DeShifr, Shifr);
 		break;
+	
 	default: cout << "Такой функции не существует."; break;
 	}
 }
@@ -233,6 +239,7 @@ void EditStudent(Baza* Student, int& CountStudent) {
 	cout << "Выберите функцию:" << endl;
 	cout << "1) Удаление студента." << endl;
 	cout << "2) Регистрация студента." << endl;
+	cout << "0) Вернуться назад" << endl;
 	cin >> func;
 	switch (func) {
 	case 1:
@@ -267,6 +274,8 @@ void EditStudent(Baza* Student, int& CountStudent) {
 		СhangeLineFile(to_string(CountStudent), "StudentsBAZADeShifr.txt", 1);
 		Shifr();
 		break;
+	case 0:
+		return;
 	default: cout << "Такой функции не существует." << endl; return;
 	}
 }
@@ -274,10 +283,18 @@ void EditStudent(Baza* Student, int& CountStudent) {
 void EditGradeStudent(Baza* Student, int& CountStudent) {
 	while (1) {
 		string name, surname, string_student;
+		cout << "Введите 0, чтобы вернуться назад" << endl;
+
 		cout << "Введите имя: ";
 		cin >> name;
+		if (name == "0")
+			return;
 		cout << "Введите фамилию: ";
 		cin >> surname;
+		if (surname == "0")
+			return;
+
+		
 		int subject, grade;
 
 		for (int i = 0; i < CountStudent; i++) if ((surname == Student[i].Name) && (name == Student[i].Surname)) {
@@ -1095,7 +1112,7 @@ void MenuReqQuest(Baza* LIST, int Count) {
 		cout << "Ввод: "; cin >> check;
 		switch (check) {
 		case 0:
-			return;
+			flag = true; return;
 		case 1:
 			EditStudent(LIST, Count);
 		case 2:
@@ -1119,7 +1136,7 @@ void MenuRedStudents(Baza* LIST, int Count) {
 		cout << "Ввод: "; cin >> check;
 		switch (check) {
 		case 0:
-			return;
+			flag = true; return;
 		case 1:
 			EditStudent(LIST, Count); break;
 		case 2:
